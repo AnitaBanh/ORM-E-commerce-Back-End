@@ -3,7 +3,9 @@
   ## Description
   This application is the back end for an e-commerce site. A Express.js API has been configured to use Sequelize to interact with a MySQL database.
   
-  Recording of application:
+  Recording of application: 
+  1) https://drive.google.com/file/d/1iUFKMwppJJ7unykxb5jgM_U5dTr5iEcD/view
+  2) https://drive.google.com/file/d/1Sf56xiILxNnPCsehzSuoairG8Uamtyek/view
 
   ## Table of Contents 
 
@@ -15,15 +17,12 @@
   - [Questions](#questions)
 
   ## Installation
-  Run this command-line application from the integrated terminal. Install from the package.json file.
+  Run this application from the integrated terminal. Install from the package.json file.
 
   ## Usage
-  1) The start menu presents the user with options to view or edit. Select the option using keyboard up and down arrows.
-  2) Press Enter to proceed with the selected option.
+  start mysql, then SOURCE schema.sql
+  npm run seed, then npm start
 
-Screenshot of the application  
-
-  
   ## License
     MIT License
     Copyright (c) 2023 Anita Banh
