@@ -11,14 +11,14 @@ router.get('/', (req, res) => {
   .catch (err => res.status(500).json(err))
 });
 
-router.get('/:id', (req, res) => {
+router.get('/:id', async (req, res) => {
   // find one category by its `id` value
   // be sure to include its associated Products
   try {
-    const categoryData =  Category.findByPk(req.params.id, {
+    const categoryData = await Category.findByPk(req.params.id, {
       include: [{ model: Product }],
     });
-
+console.log("get category by id", categoryData);
     if (!categoryData) {
       res.status(404).json({ message: 'No category found with that id!' });
       return;
@@ -30,10 +30,10 @@ router.get('/:id', (req, res) => {
   }
 });
 
-router.post('/',  (req, res) => {
+router.post('/',  async (req, res) => {
   // create a new category
   try {
-    const data =  Category.create({
+    const data = await Category.create({
       category_name: req.body.category_name,
     });
     res.status(200).json(data);
@@ -42,17 +42,18 @@ router.post('/',  (req, res) => {
   }
 });
 
-// Insomnia http://localhost:3001/api/categories/1 ERROR "message": "No category with this id!"
-router.put('/:id', (req, res) => {
+
+router.patch('/:id', async (req, res) => {
   // update a category by its `id` value
+  console.log(req.params, req.body);
   try {
-    const categoryData = Category.update(req.body, {
+    const categoryData = await Category.update(req.body, {
       where: {
-        id: req.params.id,
-        category_name: req.body.category_name,
+        id: req.params.id
       },
-    });
-    if (!categoryData[0]) {
+    }); 
+    console.log(categoryData);
+    if (!categoryData) {
       res.status(404).json({ message: 'No category with this id!' });
       return;
     }
@@ -62,10 +63,10 @@ router.put('/:id', (req, res) => {
   }
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', async (req, res) => {
   // delete a category by its `id` value
   try {
-    const categoryData = Category.destroy({
+    const categoryData = await Category.destroy({
       where: {
         id: req.params.id,
       },
