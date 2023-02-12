@@ -4,8 +4,7 @@
   This application is the back end for an e-commerce site. A Express.js API has been configured to use Sequelize to interact with a MySQL database.
   
   Recording of application: 
-  1) https://drive.google.com/file/d/1iUFKMwppJJ7unykxb5jgM_U5dTr5iEcD/view
-  2) https://drive.google.com/file/d/1Sf56xiILxNnPCsehzSuoairG8Uamtyek/view
+  https://drive.google.com/file/d/1d3iYUA23K_sZK2QVmqI6OXr6S6eL9Zch/view
 
   ## Table of Contents 
 
